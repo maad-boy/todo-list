@@ -8,11 +8,11 @@ main = Blueprint('main', __name__)
 def health():
     return jsonify({'status': 'ok'})
 
-@main.route('/user/create')
-def create_user(req: request):
+@main.route('/user/create', methods=['POST'])
+def _create_user():
     handler = create_user.get_handler()
-    _req = handler.get_request(req)
-    if not _req.is_valide():
+    _req = handler.get_request(request)
+    if not _req.is_valid():
         return jsonify({"message": "invalid request"}), 404
     res = handler.handle_request(_req)
-    return res, 200
+    return res.to_json(), 200

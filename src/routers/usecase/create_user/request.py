@@ -1,8 +1,8 @@
-from flask import request
+import flask
 from src.routers.base_handler import BaseRequest
 
 class Request(BaseRequest):
-    def __init__(self, req: request):
+    def __init__(self, req: flask.Request):
         self._req = req
         if req is None:
             return
