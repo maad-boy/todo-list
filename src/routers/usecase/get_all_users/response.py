@@ -16,5 +16,5 @@ class GetAllUsersResponse(BaseResponse):
         }
         return data
 
-    def to_dict(self) -> dict:
+    def to_json(self) -> dict:
         return {"users": [self._get_user_json(user) for user in self._users]}

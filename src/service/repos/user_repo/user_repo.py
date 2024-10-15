@@ -4,6 +4,8 @@ from src.entity import User
 from src.database.sql_alchamy import db
 from .transformation import convert_entity_to_model, convert_model_to_entity
 from flask_sqlalchemy import SQLAlchemy
+from .model import UserModel
+
 
 class UserRepo:
     def __init__(self, client: SQLAlchemy):
@@ -17,7 +19,7 @@ class UserRepo:
         self._client.session.commit()
 
     def get_all_users(self) -> List[User]:
-        db_models = self._client.session.query(User).all()
+        db_models = self._client.session.query(UserModel).all()
         users = [self._convert_model_to_entity(model) for model in db_models]
         return users
 

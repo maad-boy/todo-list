@@ -12,7 +12,8 @@ class UserService:
         return self._user_repo.create_user(user)
 
     def get_all_users(self) -> List[User]:
-        return self._user_repo.get_all_users()
+        users = self._user_repo.get_all_users()
+        return users
 
 def get_user_service() -> UserService:
     return UserService(get_user_repo())
