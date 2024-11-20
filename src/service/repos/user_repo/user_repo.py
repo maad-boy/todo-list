@@ -23,6 +23,10 @@ class UserRepo:
         users = [self._convert_model_to_entity(model) for model in db_models]
         return users
 
+    def get_user_by_id(self, user_id: int) -> User:
+        db_model = self._client.session.query(UserModel).filter_by(id=user_id).first()
+        user = self._convert_model_to_entity(db_model)
+        return user
 
 def get_user_repo() -> UserRepo:
     return UserRepo(client=db)
