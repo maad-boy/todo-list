@@ -26,3 +26,7 @@ def _get_all_users():
     res = handler.handle_request(_req)
     return res.to_json(), 200
 
+@main.route('/user/data', methods=['GET'])
+def _get_user_data_by_id():
+    handler =  get_user_data_by_id.get_handler()
+    _req = handler.get_request(request)

@@ -15,5 +15,9 @@ class UserService:
         users = self._user_repo.get_all_users()
         return users
 
+    def get_user_by_id(self, user_id: int) -> User:
+        user = self._user_repo.get_user_by_id(user_id)
+        return user
+
 def get_user_service() -> UserService:
     return UserService(get_user_repo())
