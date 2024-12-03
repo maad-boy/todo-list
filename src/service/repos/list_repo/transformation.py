@@ -3,7 +3,7 @@ from .model import Listmodel
 
 
 def convert_entity_to_model(entity: TodoList):
-    lm = Listmodel(id=entity.id,title=entity.title,item=entity.items,description=entity.description)
+    lm = Listmodel(id=entity.id,title=entity.title,description=entity.description)
     return lm
 
 def convert_model_to_entity(model: Listmodel):

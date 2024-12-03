@@ -44,11 +44,3 @@ def _create_list():
     res = handler.handle_request(_req)
     return res.to_json(), 200
 
-@main.route('/list/all', methods=['GET'])
-def _get_all_list():
-    handler = get_all_list.get_handler()
-    _req = handler.get_request(request)
-    if not _req.is_valid():
-        return jsonify({"message": "invalid request"}), 404
-    res = handler.handle_request(_req)
-    return res.to_json(), 200

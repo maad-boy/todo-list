@@ -1,1 +1,1 @@
-from .list_repo import get_list_repo, ListRepo
+from list_repo import get_list_repo
