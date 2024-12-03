@@ -7,7 +7,7 @@ class GetUserByIdRequest(BaseRequest):
         if req is None:
             return
         data = req.get_json()
-        self.user_id = data.get("user_id", "")
+        self.user_id: int = data.get("user_id", "")
 
     def is_valid(self):
         if isinstance(self.user_id, int):
